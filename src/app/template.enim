@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Output</title>
+</head>
+<body>
+    <h1>Data</h1>
+    <p><strong>userId:</strong> {{userId}}</p>
+    <p><strong>id:</strong> {{id}}</p>
+    <p><strong>title:</strong> {{title}}</p>
+    <p><strong>completed:</strong> {{completed}}</p>
+</body>
+</html>
