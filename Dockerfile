@@ -1,14 +1,11 @@
-# Start with a base Linux image with Nim pre-installed or install Nim yourself
-FROM nimlang/nim:alpine
-
-# Set the working directory in the container
+# Stage 1: Build
+FROM nimlang/nim:ubuntu AS builder
 WORKDIR /app
-
-# Copy the project files into the container
 COPY . .
-
-# Compile the Nim project to a Linux binary
 RUN nim c -d:release main.nim
 
-# Command to run the compiled binary
+# Stage 2: Run
+FROM ubuntu:latest
+WORKDIR /app
+COPY --from=builder /app/main .
 CMD ["./main"]
